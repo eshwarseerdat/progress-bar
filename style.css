@@ -1,1 +1,97 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+
+body {
+  background-color: #f6f7fb;
+  font-family: "Roboto";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+main {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 1.3rem;
+  max-width: 100%;
+  width: 20rem;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
+
+#progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circles {
+  background-color: #fff;
+  border: 3px solid var(--line-border-empty);
+  border-radius: 50%;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  transition: 0.4s ease;
+}
+
+.circles.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  border: none;
+  background-color: var(--line-border-fill);
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.btn:active {
+  scale: 0.98;
+}
+
+.btn:hover {
+  box-shadow: 0px 10px 5px -5px rgba(0, 0, 255, 0.2);
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+  scale: none;
+  box-shadow: none;
+}
